@@ -1,0 +1,46 @@
+<!doctype html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 2</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+
+    canvas { display: block; width: 100vw; height: 100vh; }
+
+    #error-overlay, #info-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      font-family: "Courier New", monospace;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #error-overlay.visible, #info-overlay.visible { display: flex; }
+
+    #error-overlay { color: #ff5555; }
+    #info-overlay  { color: #5555ff; }
+
+    .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; }
+    .message { max-width: 500px; line-height: 1.6; font-size: 15px; }
+  </style>
+</head>
+
+<body>
+  <canvas id="gpu-canvas"></canvas>
+  <div id="error-overlay">
+    <span class="label">WebGPU Error</span>
+    <span class="message" id="error-message"></span>
+  </div>
+  <div id="info-overlay">
+    <span class="label">Info</span>
+    <span class="message" id="info-message"></span>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
